@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>Edit pet</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-12 order-md-1">
+            <form [formGroup]="petUpdateForm" (ngSubmit)="onSubmit()">
+                <input type="hidden" formControlName="id">
+                <div class="mb-3">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" formControlName="name">
+                </div>
+                <div class="mb-3">
+                    <label for="name">Code</label>
+                    <input type="text" class="form-control" id="code" formControlName="code">
+                  </div>
+                <div class="mb-3">
+                  <label for="name">Type</label>
+                  <select class="form-select d-block w-100" id="type" formControlName="type">
+                    <option value="">Choose...</option>
+                    <option *ngFor="let type of petTypes" [value]="type">{{ type | capitalize }}</option>
+                </select>
+                </div>
+                <div class="mb-3">
+                    <label for="name">Fur colour</label>
+                    <select class="form-select d-block w-100" id="furColour" formControlName="furColour">
+                      <option value="">Choose...</option>
+                      <option *ngFor="let colour of petFurColours" [value]="colour">{{ colour | capitalize }}</option>
+                </select>
+                </div>
+                <div class="mb-3">
+                    <label for="name">Country of origin</label>
+                    <select class="form-select d-block w-100" id="country" formControlName="country">
+                      <option value="">Choose...</option>
+                      <option *ngFor="let country of petCountries" [value]="country">{{ country | capitalize }}</option>
+                </select>
+                </div>
+                <div class="row">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
